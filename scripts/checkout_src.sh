@@ -38,6 +38,8 @@ if $CHECKOUT_SOURCE; then
     composer install
 
     #setup permissions
+    echo ""
+    echo "setting permissions for Apache"
     chgrp apache $FILES_ROOT -R
     chmod 775 $PROJECT_ROOT"/logs" -R
     chmod 775 $PROJECT_ROOT"/upex/storage" -R
@@ -47,7 +49,7 @@ fi
 if $WRITE_DUO_CONFIGS; then
 #Creare config from template
     echo ""
-    echo "Create $PROJECT_ROOT/upex/.env:"
+    echo "Create $PROJECT_ROOT/upex/.env from example:"
     cp $PROJECT_ROOT"/upex/.env.example" $PROJECT_ROOT"/upex/.env"
 fi
 
